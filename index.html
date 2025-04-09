@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>TP Vectores - Houkai Programador</title>
+    <style>
+        body {
+            font-family: monospace;
+            background-color: #f0f8ff;
+            padding: 20px;
+        }
+        h1 {
+            color: #ff69b4;
+        }
+        pre {
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>🌸 Archivos del TP de Vectores 🌸</h1>
+    <div id="archivos">
+        <h2>ej1.cpp</h2><pre id="ej1"></pre>
+        <h2>ej2.cpp</h2><pre id="ej2"></pre>
+        <h2>ej3.cpp</h2><pre id="ej3"></pre>
+        <h2>ej4.cpp</h2><pre id="ej4"></pre>
+        <h2>ej5.cpp</h2><pre id="ej5"></pre>
+    </div>
+
+    <script>
+        const archivos = ["ej1.cpp", "ej2.cpp", "ej3.cpp", "ej4.cpp", "ej5.cpp"];
+        const user = "DaelagerUwU";
+        const repo = "TP-VECTORES";
+
+        archivos.forEach(nombre => {
+            fetch(`https://raw.githubusercontent.com/${user}/${repo}/main/${nombre}`)
+                .then(r => r.text())
+                .then(txt => {
+                    document.getElementById(nombre.split(".")[0]).textContent = txt;
+                });
+        });
+    </script>
+</body>
+</html>
